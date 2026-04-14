@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attie's Garden - Online Ordering</title>
+    <link rel="stylesheet" href="products.css">
+</head>
+
+<body>
+
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="cart.html">Cart (<span class="cart-count">0</span>)</a> <!-- ✅ CHANGED -->
+        <a href="products.html">Products</a>
+        <a href="about.html">About us</a>
+    </nav>
+
+    <header>
+        <h1>Attie's Garden</h1>
+        <p>Fresh Plants & Garden Supplies</p>
+        <p> Order Online </p>
+    </header>
+
+    <div class="product-container">
+        <!-- SEARCH -->
+        <div class="search-wrapper">
+            <form onsubmit="searchPlant(event)">
+                <div class="search-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="searchInput" class="search-input" onkeyup="searchPlant(event)"
+                        placeholder="Search plants...">
+                </div>
+            </form>
+
+            <a href="#" onclick="goToCart()" class="cart-icon">🛒 (<span class="cart-count">0</span>)</a>
+        </div>
+
+        <section class="section-title">
+            <h1>Our Plant Collection</h1>
+        </section>
+
+        <div class="categories">
+            <button onclick="filterPlants('all')">All</button>
+            <button onclick="filterPlants('beginner')">Beginner-friendly</button>
+            <button onclick="filterPlants('lowlight')">Low Light</button>
+            <button onclick="filterPlants('mid')">Mid-sized</button>
+            <button onclick="filterPlants('tall')">Tall Plants</button>
+        </div>
+
+        <section class="products">
+
+            <div class="card beginner">
+                <img src="images/Sansevieria Bacularis - B.jpg" class="product-img">
+                <h3>Sansevieria Bacularis</h3>
+                <p class="price">₱220</p>
+                <p>A hardy, beginner-friendly plant that enhances modern spaces while helping purify indoor air.</p>
+                <button onclick="addToCart('Sansevieria Bacularis', 220)">Add to Cart</button>
+            </div>
+            <div class="card beginner">
+                <img src="images/Heartleaf Philodendron B.jpg" class="product-img">
+                <h3>Heartleaf Philodendron</h3>
+                <p class="price">₱250</p>
+                <p>A fast-growing trailing plant with glossy heart-shaped leaves that is perfect for décor and easy to
+                    maintain.</p>
+                <button onclick="addToCart('Heartleaf Philodendron', 250)">Add to Cart</button>
+            </div>
+            <div class="card beginner">
+                <img src="images/Sansevieria Francissi B.jpg" class="product-img">
+                <h3>Sansevieria Francissi</h3>
+                <p class="price">₱200</p>
+                <p>A compact spiky plant with cone-shaped growth and attractive green striped leaves.</p>
+                <button onclick="addToCart('Sansevieria Francissi', 200)">Add to Cart</button>
+            </div>
+            <div class="card beginner">
+                <img src="images/Pothos N Joy B.jpg" class="product-img">
+                <h3>Pothos N Joy</h3>
+                <p class="price">₱170</p>
+                <p>A small trailing plant with beautiful white and green variegated leaves.</p>
+                <button onclick="addToCart('Pothos N Joy', 170)">Add to Cart</button>
+            </div>
+            <div class="card beginner">
+                <img src="images/Peperomia Glabela B.jpg" class="product-img">
+                <h3>Peperomia Glabela</h3>
+                <p class="price">₱145</p>
+                <p>A low-maintenance trailing plant with bright green clustered leaves that thrives in indirect light.
+                </p>
+                <button onclick="addToCart('Peperomia Glabela', 145)">Add to Cart</button>
+            </div>
+            <div class="card beginner">
+                <img src="images/Dracaena Gold Dust B.jpg" class="product-img">
+                <h3>Dracaena Gold Dust</h3>
+                <p class="price">₱220</p>
+                <p>An elegant indoor plant with glossy green leaves dotted with golden spots.</p>
+                <button onclick="addToCart('Dracaena Gold Dust', 220)">Add to Cart</button>
+            </div>
+            <div class="card beginner">
+                <img src="images/Tradescantia Nanouk B.jfif" class="product-img">
+                <h3>Tradescantia Nanouk</h3>
+                <p class="price">₱245</p>
+                <p>This easy to care for Tradescantia Nanouk boasts delicate creamy green, purple, pink, and white
+                    leaves and is the perfect gift for any plant lover</p>
+                <button onclick="addToCart('Tradescantia Nanouk', 245)">Add to Cart</button>
+            </div>
+            <div class="card beginner">
+                <img src="images/Oyster Plant B.jfif" class="product-img">
+                <h3>Oyster Plant</h3>
+                <p class="price">₱230</p>
+                <p>This eye-catching plant is easy to grow and thrives in almost any environment with low light to
+                    bright direct light.</p>
+                <button onclick="addToCart('Oyster Plant', 230)">Add to Cart</button>
+            </div>
+            <div class="card beginner">
+                <img src="images/Hoya Compacta.jfif" class="product-img">
+                <h3>Hoya Compacta</h3>
+                <p class="price">₱205</p>
+                <p>With its cascading ropes of glossy, curled leaves, the Hoya Compacta is an eye-catching plant. This
+                    slow-growing beauty thrives on neglect, rewarding you with sculptural foliage and clusters of
+                    star-shaped, fragrant flowers under the right condition.</p>
+                <button onclick="addToCart('Hoya Compacta', 205)">Add to Cart</button>
+            </div>
+            <div class="card beginner">
+                <img src="images/Sansevieria Moonshine B.jpg" class="product-img">
+                <h3>Sansevieria Moonshine</h3>
+                <p class="price">₱295</p>
+                <p>The Sansevieria Moonshine is a rare and stunning statement plant with broad, blue-silver leaves.
+                    Known for its air-purifying qualities and ability to thrive in low light, this plant makes an
+                    excellent addition to any home or office.</p>
+                <button onclick="addToCart('Sansevieria Moonshine', 295)">Add to Cart</button>
+            </div>
+
+            <div class="card lowlight">
+                <img src="images/Zenzi Zz L.jpg" class="product-img">
+                <h3>Zenzi Zz</h3>
+                <p class="price">₱430</p>
+                <p>A compact ZZ plant with thick stems and glossy leaves that gives a lush, bushy look.</p>
+                <button onclick="addToCart('Zenzi Zz', 430)">Add to Cart</button>
+            </div>
+            <div class="card lowlight">
+                <img src="images/Golden Pothos L.jpg" class="product-img">
+                <h3>Golden Pothos</h3>
+                <p class="price">₱310</p>
+                <p>An easy-care plant known for its heart-shaped leaves with golden variegation.</p>
+                <button onclick="addToCart('Golden Pothos', 310)">Add to Cart</button>
+            </div>
+            <div class="card lowlight">
+                <img src="images/Snake Plant Variegated L.jpg" class="product-img">
+                <h3>Snake Plant Variegated</h3>
+                <p class="price">₱650</p>
+                <p>A low-maintenance plant with sword-shaped leaves that improves air quality even at night.</p>
+                <button onclick="addToCart('Snake Plant Variegated', 650)">Add to Cart</button>
+            </div>
+            <div class="card lowlight">
+                <img src="images/Neon Philodendron L.jpg" class="product-img">
+                <h3>Neon Philodendron</h3>
+                <p class="price">₱350</p>
+                <p>A vibrant, easy-to-grow vine with bright lime-green leaves that thrives indoors.</p>
+                <button onclick="addToCart('Neon Philodendron', 350)">Add to Cart</button>
+            </div>
+            <div class="card lowlight">
+                <img src="images/Cast Iron Plant L.jfif" class="product-img">
+                <h3>Cast Iron Plant</h3>
+                <p class="price">₱350</p>
+                <p>True to its name, the Cast
+                    Iron Plant is incredibly tough and can
+                    handle very dark rooms and neglect. Its
+                    deep green leaves grow slowly but
+                    steadily, making it a great option for
+                    hallways or shaded corners, and it's
+                    resistant to temperature fluctuations.</p>
+                <button onclick="addToCart('Cast Iron Plant', 350)">Add to Cart</button>
+            </div>
+            <div class="card lowlight">
+                <img src="images/Chinese Evergreen (Aglaonema) L.jfif" class="product-img">
+                <h3>Chinese Evergreen</h3>
+                <p class="price">₱1100</p>
+                <p>Chinese Evergreens are
+                    known for their striking foliage, which
+                    comes in various shades of green, silver,
+                    and even red or pink. They are extremely
+                    tolerant of low light conditions and make
+                    a beautiful, bushy addition to any space,
+                    requiring minimal fuss.</p>
+                <button onclick="addToCart('Chinese Evergreen', 1100)">Add to Cart</button>
+            </div>
+            <div class="card lowlight">
+                <img src="images/Zamioculcas Zamiifolia L.webp" class="product-img">
+                <h3>Zamioculcas Zamiifolia</h3>
+                <p class="price">₱1000</p>
+                <p>The Zamioculcas Zamiifolia plant is famous for
+                    its ability to survive almost anywhere,
+                    including very low light. Its waxy, dark
+                    green leaves remain lush even with
+                    minimal light, and it doesn't require
+                    frequent watering. It'sa top choice for
+                    offices and windowless bathrooms,
+                    thriving on neglect.</p>
+                <button onclick="addToCart('Zamioculcas Zamiifolia', 1000)">Add to Cart</button>
+            </div>
+            <div class="card lowlight">
+                <img src="images/prayer plant l.webp" class="product-img">
+                <h3>Prayer Plant</h3>
+                <p class="price">₱450</p>
+                <p>Beautiful plant with colorful leaves that fold up at night. Thrives in low light and adds tropical
+                    charm indoors.</p>
+                <button onclick="addToCart('Prayer Plant', 450)">Add to Cart</button>
+            </div>
+            <div class="card lowlight">
+                <img src="images/caladium.jfif" class="product-img">
+                <h3>Caladium</h3>
+                <p class="price">₱380</p>
+                <p>Stunning heart-shaped leaves in pink, white, and green patterns. Loves shade and makes a dramatic
+                    indoor display.</p>
+                <button onclick="addToCart('Caladium', 380)">Add to Cart</button>
+            </div>
+            <div class="card lowlight">
+                <img src="images/nerve plant.jfif" class="product-img">
+                <h3>Nerve Plant (Fittonia)</h3>
+                <p class="price">₱280</p>
+                <p>Tiny jewel plant with intricate vein patterns in pink, white, and green. Perfect for terrariums and
+                    low-light shelves.</p>
+                <button onclick="addToCart('Nerve Plant (Fittonia)', 280)">Add to Cart</button>
+            </div>
+
+            <div class="card mid">
+                <img src="images/Burgundy Rubber Tree M.jpg" class="product-img">
+                <h3>Burgundy Rubber Tree</h3>
+                <p class="price">₱600</p>
+                <p>A low-maintenance plant with large glossy leaves in deep burgundy tones.</p>
+                <button onclick="addToCart('Burgundy Rubber Tree', 600)">Add to Cart</button>
+            </div>
+            <div class="card mid">
+                <img src="images/Dracaena Anita M.jpg" class="product-img">
+                <h3>Dracaena Anita</h3>
+                <p class="price">₱950</p>
+                <p>An elegant and resilient plant with long narrow leaves that adds a refined touch to interiors.</p>
+                <button onclick="addToCart('Dracaena Anita', 950)">Add to Cart</button>
+            </div>
+            <div class="card mid">
+                <img src="images/Philodendron Selloum M.jpg" class="product-img">
+                <h3>Philodendron Selloum</h3>
+                <p class="price">₱1000</p>
+                <p>A bold tropical plant with large lobed leaves that thrives in bright indirect light.</p>
+                <button onclick="addToCart('Philodendron Selloum', 1000)">Add to Cart</button>
+            </div>
+            <div class="card mid">
+                <img src="images/Monstera Deliciosa M.jpg" class="product-img">
+                <h3>Monstera Deliciosa</h3>
+                <p class="price">₱1200</p>
+                <p>A popular tropical plant with unique split leaves that thrives in warm, humid environments.</p>
+                <button onclick="addToCart('Monstera Deliciosa', 1200)">Add to Cart</button>
+            </div>
+            <div class="card mid">
+                <img src="images/Lavandula Anouk.jfif" class="product-img">
+                <h3>Lavandula Anouk</h3>
+                <p class="price">₱580</p>
+                <p>A Lavandula Anouk produces more abundant violet-blue flower spikes atop silvery foliage. Seasonal
+                    conditions may affect blooms, though foliage remains striking.</p>
+                <button onclick="addToCart('Lavandula Anouk', 580)">Add to Cart</button>
+            </div>
+            <div class="card mid">
+                <img src="images/Mandevilla Pink M.jfif" class="product-img">
+                <h3>Mandevilla Pink</h3>
+                <p class="price">₱675</p>
+                <p>The Mandevilla features larģe, cotton-candy
+                    pink flowers accented by a yellow center.
+                    Grown on a trellis to encouraģe upward
+                    ģrowth, the Mandevilla adds color, height,
+                    and a touch of the tropics to your outdoor space.</p>
+                <button onclick="addToCart('Mandevilla Pink', 675)">Add to Cart</button>
+            </div>
+            <div class="card mid">
+                <img src="images/Money Tree M.jfif" class="product-img">
+                <h3>Money Tree</h3>
+                <p class="price">₱1000</p>
+                <p>Thrives with minimal
+                    attention. Perfect for beginners or
+                    busy plarnt parents.</p>
+                <button onclick="addToCart('Money Tree', 1000)">Add to Cart</button>
+            </div>
+            <div class="card mid">
+                <img src="images/Peace Lily M.jfif" class="product-img">
+                <h3>Peace Lily</h3>
+                <p class="price">₱650</p>
+                <p>Peace lilies bring elegance
+                    with their glossy green leaves and
+                    beautiful white blooms. They do well in
+                    low light, though more indirect light can
+                    encourage more flowering. They are also
+                    known for purifying the air and will visibly
+                    droop when thirsty, making their watering
+                    needs easy to understand.</p>
+                <button onclick="addToCart('Peace Lily', 650)">Add to Cart</button>
+            </div>
+            <div class="card mid">
+                <img src="images/Cat Palm M.jfif" class="product-img">
+                <h3>Cat Palm</h3>
+                <p class="price">₱1000</p>
+                <p>The Cat Palm is sure to become a favorite thanks to its lush tropical appearance and dense green
+                    foliage. The Cat Palm's fluffy leaves and short trunk give the feeling of a jungle oasis in your own
+                    very
+                    home. As one of the fullest plants, this palm is ready to make a statement. The Cat Palm is easy to
+                    care
+                    for and prefers indirect bright light.</p>
+                <button onclick="addToCart('Cat Palm', 1000)">Add to Cart</button>
+            </div>
+            <div class="card mid">
+                <img src="images/Parlor Palm M.jfif" class="product-img">
+                <h3>Parlor Palm</h3>
+                <p class="price">₱700</p>
+                <p>The Parlor Palm adds a
+                    tropical feel without needing a lot of
+                    sunlight.It stays relatively compact and
+                    thrives in shaded rooms. Its feathery
+                    fronds give it a lush look, and it also helps
+                    improve indoor air quality.</p>
+                <button onclick="addToCart('Parlor Palm', 700)">Add to Cart</button>
+            </div>
+
+
+            <div class="card tall">
+                <img src="images/Bamboo Palm L.jpg" class="product-img">
+                <h3>Bamboo Palm</h3>
+                <p class="price">₱1800</p>
+                <p>A tropical indoor plant with bamboo-like stems and feathery fronds that help purify air.</p>
+                <button onclick="addToCart('Bamboo Palm', 1800)">Add to Cart</button>
+            </div>
+            <div class="card tall">
+                <img src="images/Areca Palm L.jpg" class="product-img">
+                <h3>Areca Palm</h3>
+                <p class="price">₱1800</p>
+                <p>A striking indoor palm with arching fronds that creates a bold tropical look.</p>
+                <button onclick="addToCart('Areca Palm', 1800)">Add to Cart</button>
+            </div>
+            <div class="card tall">
+                <img src="images/TupidanthusL.jpg" class="product-img">
+                <h3>Tupidanthus</h3>
+                <p class="price">₱3700</p>
+                <p>A low-maintenance tropical plant with glossy leaves that thrives in warm, bright spaces.</p>
+                <button onclick="addToCart('Tupidanthus', 3700)">Add to Cart</button>
+            </div>
+            <div class="card tall">
+                <img src="images/Ficus Nitida L.jpg" class="product-img">
+                <h3>Ficus Nitida</h3>
+                <p class="price">₱4800</p>
+                <p>A fast-growing evergreen tree with dense glossy foliage ideal for shade or landscaping.</p>
+                <button onclick="addToCart('Ficus Nitida', 4800)">Add to Cart</button>
+            </div>
+            <div class="card tall">
+                <img src="images/Jaboticaba Tree L.jpg" class="product-img">
+                <h3>Jaboticaba Tree</h3>
+                <p class="price">₱6800</p>
+                <p>A unique fruiting tree that produces grape-like fruits directly on its trunk.</p>
+                <button onclick="addToCart('Jaboticaba Tree', 6800)">Add to Cart</button>
+            </div>
+            <div class="card tall">
+                <img src="images/Eucalyptus Gunnii T.jfif" class="product-img">
+                <h3>Eucalyptus Gunnii</h3>
+                <p class="price">₱500</p>
+                <p>Also known as Gum Tree, originates from Australia. She owes her nick name due to the sticky, gum-like
+                    substance she exudes from her stem. In the warmth of the summer she’s usually placed outside.</p>
+                <button onclick="addToCart('Eucalyptus Gunnii', 500)">Add to Cart</button>
+            </div>
+            <div class="card tall">
+                <img src="images/Olea Europaea T.jfif" class="product-img">
+                <h3>Olea Europaea</h3>
+                <p class="price">₱1200</p>
+                <p>The Olea Europaea, or olive tree, instantly adds a sunny Mediterranean vibe to your space! With its
+                    pretty silver-green leaves and slim trunk, it is definitely a showstopper. This tough tree can
+                    handle a bit of cold and does great both indoors and outdoors.</p>
+                <button onclick="addToCart('Olea Europaea', 1200)">Add to Cart</button>
+            </div>
+            <div class="card tall">
+                <img src="images/Washingtonia Robusta T.jfif" class="product-img">
+                <h3>Washingtonia Robusta</h3>
+                <p class="price">₱2000</p>
+                <p>A Washingtonia Robusta is a tall, majestic palm with expansive fan-shaped fronds. Seasonal
+                    variation may affect frond fullness.</p>
+                <button onclick="addToCart('Washingtonia Robusta', 2000)">Add to Cart</button>
+            </div>
+            <div class="card tall">
+                <img src="images/Phoenix Canariensis T.jfif" class="product-img">
+                <h3>Phoenix Canariensis</h3>
+                <p class="price">₱1500</p>
+                <p>The Phoenix Canariensis is a majestic Canary Island Date Palm with arching, deep green fronds.
+                    Seasonal appearance may differ, but it adds tropical elegance.</p>
+                <button onclick="addToCart('Phoenix Canariensis', 1500)">Add to Cart</button>
+            </div>
+            <div class="card tall">
+                <img src="images/Fiddle Leaf Fig T.jfif" class="product-img">
+                <h3>Fiddle Leaf Fig</h3>
+                <p class="price">₱1700</p>
+                <p>Tall, sculptural, and dramatic. This plant will
+                    flourish in the right conditions.</p>
+                <button onclick="addToCart('Fiddle Leaf Fig', 1700)">Add to Cart</button>
+            </div>
+
+        </section>
+    </div>
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- LEFT: CONTACT INFO -->
+            <div class="footer-section">
+                <h3>CONTACT US</h3>
+                <p><strong>📞 Contact Number:</strong><br> 0967 331 6074</p>
+                <p><strong>📧 Email:</strong><br> attiesgarden@gmail.com</p>
+                <p><strong>🕒 Opening Hours:</strong><br> 7:00 AM – 4:00 PM</p>
+                <p><strong>📌 Landmark:</strong><br> Concordio Diel St., in front of Chachago Cafe</p>
+                <p><strong>📍 Location:</strong><br> 52 Father Masterson Ave, Ilaya, Carmen,<br> Cagayan de Oro City,
+                    9000 Misamis Oriental</p>
+            </div>
+
+            <!-- MIDDLE: NAVIGATION + BUTTONS -->
+            <!-- MIDDLE: QUICK ACCESS (Footer) -->
+            <div class="footer-section">
+                <h3>QUICK ACCESS</h3>
+                <a href="home.html">🏠 Home</a>
+                <a href="products.html">🌿 Products</a>
+                <a href="about.html">ℹ️ About</a>
+                <a href="cart.html">🛒 Cart</a>
+            </div>
+
+            <!-- RIGHT: ABOUT SECTIONS -->
+            <div class="footer-section">
+                <h3>OUR STORY</h3>
+                <a href="about.html#history">📜 History</a>
+                <a href="about.html#projects">🏗️ Projects</a>
+                <a href="about.html#reviews">⭐ Reviews</a>
+                <a href="about.html#resumes">👨‍💻 Developers</a>
+                <a href="about.html#note">📚 Students</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="products.js"></script>
+</body>
+
+</html>

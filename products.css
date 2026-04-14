@@ -1,0 +1,238 @@
+.body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: white;
+    overflow-x: hidden;
+}
+
+/* NAV */
+nav {
+    background-color: darkgreen;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+nav a {
+    color: beige;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* HEADER */
+header {
+    padding: 20px;
+    background-image: url('images/webhead6.jpg');
+    background-size: cover;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+header h1 {
+    text-align: center;
+    color: darkgreen;
+    font-size: 42px;
+    margin-bottom: 0%;
+}
+
+header p {
+    text-align: center;
+    font-style: italic;
+    margin-top: 0%;
+    margin-bottom: 0%;
+}
+
+/* SEARCH */
+.search-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+
+    background: #f5f0e6;
+    /* ✅ beige */
+    padding: 12px 20px;
+    border-radius: 40px;
+}
+
+.search-input {
+    border: none;
+    outline: none;
+    background: transparent;
+    /* 🔥 THIS removes white box */
+
+    width: 100%;
+    font-size: 14px;
+
+    box-shadow: none;
+    /* 🔥 remove any shadow */
+}
+
+.cart-icon {
+    color: white;
+    font-size: 40px;
+    /* 🔥 controls icon size */
+    margin-left: 10px;
+    /* space from search bar */
+    cursor: pointer;
+    /* makes it clickable */
+}
+
+.product-container {
+    width: 100%;
+    margin: auto;
+    padding: 40px 20px;
+    /* 🔥 reduced */
+
+    background-image: url('images/webpage.jfif');
+    /* 🔥 fix path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    /* ❌ REMOVE THIS (causes bug) */
+    /* background-attachment: fixed; */
+
+    box-sizing: border-box;
+}
+
+.section-title h1 {
+    color: beige;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    padding: 10px;
+}
+
+.categories {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 0;
+    background-color: transparent;
+    /* or keep transparent if you want */
+}
+
+.categories button {
+    background-color: beige;
+    color: darkgreen;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.categories button:hover {
+    background-color: green;
+}
+
+/* HOVER EFFECT */
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+.product-img {
+    width: 80%;
+    border-radius: 10px;
+    margin: 5%;
+    border-style: dashed;
+    border-color: #2e8b57;
+}
+
+.card {
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+
+    background-color: #f0fff4;
+    border: 2px solid #2e8b57;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* PRODUCT NAME */
+.card h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+/* PRICE */
+.price {
+    color: green;
+    font-weight: bold;
+    margin: 8px 0;
+}
+
+/* DESCRIPTION */
+.card p {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+/* BUTTON */
+.card button {
+    padding: 8px 12px;
+    background-color: darkgreen;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.card button:hover {
+    background-color: green;
+}
+
+
+.footer {
+    background: #2e4d2c;
+    /* dark green */
+    color: white;
+    padding: 40px 20px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.footer-section {
+    flex: 1;
+    min-width: 220px;
+}
+
+.footer-section h3 {
+    margin-bottom: 15px;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.footer-section a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.footer-section a:hover {
+    text-decoration: underline;
+}

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attie's Garden - Online Ordering</title>
+    <link rel="stylesheet" href="cart.css">
+</head>
+
+<body>
+
+    <nav>
+        <a href="home.html">Home</a>
+        <a href="cart.html">Cart</a>
+        <a href="products.html">Products</a>
+        <a href="about.html">About us</a>
+    </nav>
+
+    <header>
+        <h1>Attie's Garden</h1>
+        <p>Fresh Plants & Garden Supplies</p>
+        <p>Order Online</p>
+    </header>
+
+    <div class="login-container">
+        <!-- DASHBOARD -->
+        <div class="dashboard">
+
+            <!-- CART -->
+            <div class="card" onclick="openCart()">
+                <div id="cart-section">
+                    <h2 class="section-title">YOUR CART</h2>
+
+                    <div class="cart-header">
+                        <span>Product</span>
+                        <span>Qty</span>
+                        <span>Price</span>
+                    </div>
+
+                    <div id="cart-items"></div>
+
+                    <hr>
+                    <h3 class="total">Total: ₱<span id="total">0</span></h3>
+                    <div id="local-datetime" class="local-datetime">🕐 LOADING TIME...</div>
+                    <hr>
+
+                    <h3>Customer Info</h3>
+                    <input type="text" id="name" placeholder="Full Name">
+                    <input type="text" id="contact" placeholder="Contact">
+                    <label>Barangay (Cagayan de Oro only)</label>
+                    <select id="barangay" required>
+                        <option value="">Select Barangay</option>
+                        <option value="Agusan">Agusan</option>
+                        <option value="Balulang">Balulang</option>
+                        <option value="Bugo">Bugo</option>
+                        <option value="Bulua">Bulua</option>
+                        <option value="Carmen">Carmen</option>
+                        <option value="Consolacion">Consolacion</option>
+                        <option value="Cugman">Cugman</option>
+                        <option value="Gusa">Gusa</option>
+                        <option value="Indahag">Indahag</option>
+                        <option value="Iponan">Iponan</option>
+                        <option value="Kauswagan">Kauswagan</option>
+                        <option value="Lapasan">Lapasan</option>
+                        <option value="Macabalan">Macabalan</option>
+                        <option value="Nazareth">Nazareth</option>
+                        <option value="Patag">Patag</option>
+                        <option value="Puntod">Puntod</option>
+                        <option value="Tablon">Tablon</option>
+                        <option value="Tignapoloan">Tignapoloan</option>
+                        <option value="Upper Carmen">Upper Carmen</option>
+                    </select>
+                    <br><br>
+                    <input type="text" id="street" placeholder="House No. / Street" required>
+
+                    <hr>
+
+                    <h3>Payment</h3>
+                    <label><input type="radio" name="payment" value="COD"> Cash On Delivery</label><br>
+                    <label><input type="radio" name="payment" value="GCash"> GCash</label><br>
+
+                    <br>
+                    <button onclick="placeOrder()">PLACE ORDER</button>
+                </div>
+            </div>
+
+            <!-- ORDERS CARD -->
+            <div class="card" id="ordersCard">
+                <div class="orders">
+                    <h2>📋 VIEW ORDERS</h2>
+                    <p id="ordersToggle" onclick="toggleOrders()"
+                        style="cursor: pointer; color: green; font-weight: bold;">
+                        👁️ Click to View Orders
+                    </p>
+                </div>
+            </div>
+
+            <!-- ORDERS DASHBOARD (Hidden by default) -->
+            <div id="ordersDashboard" class="orders-dashboard">
+                <!-- LEFT: PENDING ORDERS -->
+                <div class="pending-orders">
+                    <h3>⏳ Pending Orders <span id="pending-count">0</span></h3>
+                    <div id="pending-list" class="orders-list"></div>
+                </div>
+
+                <!-- RIGHT: COMPLETED ORDERS -->
+                <div class="completed-orders">
+                    <h3>✅ Completed Orders <span id="completed-count">0</span></h3>
+                    <div id="completed-list" class="orders-list"></div>
+                    <!-- 🔥 TOTAL BAR -->
+                    <div id="overallTotalBar" class="overall-total-bar empty">
+                        <div>No completed orders yet 🎉</div>
+                        <div class="grand-total">₱0</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ✅ SINGLE RESET SECTION - AFTER ordersDashboard -->
+            <div id="resetSection" class="reset-section" style="display: none;">
+                <h3>🗑️ CLEAR ALL RECORDS</h3>
+                <p style="margin: 10px 0 20px;">Reset pending and completed orders</p>
+                <button class="reset-btn" onclick="confirmReset()">RESET ALL ORDERS</button>
+                <div id="resetConfirm" class="reset-confirm" style="display: none;">
+                    <p>⚠️ Are you sure? This will delete ALL orders!</p>
+                    <button class="reset-btn" onclick="performReset()"
+                        style="background:#dc3545;color:white;margin-right:10px;">YES, DELETE ALL</button>
+                    <button class="reset-btn" onclick="cancelReset()"
+                        style="background:#6c757d;color:white;">CANCEL</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="footer-container">
+            <!-- LEFT: CONTACT INFO -->
+            <div class="footer-section">
+                <h3>CONTACT US</h3>
+                <p><strong>📞 Contact Number:</strong><br> 0967 331 6074</p>
+                <p><strong>📧 Email:</strong><br> attiesgarden@gmail.com</p>
+                <p><strong>🕒 Opening Hours:</strong><br> 7:00 AM – 4:00 PM</p>
+                <p><strong>📌 Landmark:</strong><br> Concordio Diel St., in front of Chachago Cafe</p>
+                <p><strong>📍 Location:</strong><br> 52 Father Masterson Ave, Ilaya, Carmen,<br> Cagayan de Oro City,
+                    9000 Misamis Oriental</p>
+            </div>
+
+            <!-- MIDDLE: NAVIGATION + BUTTONS -->
+            <!-- MIDDLE: QUICK ACCESS (Footer) -->
+            <div class="footer-section">
+                <h3>QUICK ACCESS</h3>
+                <a href="home.html">🏠 Home</a>
+                <a href="products.html">🌿 Products</a>
+                <a href="about.html">ℹ️ About</a>
+                <a href="cart.html">🛒 Cart</a>
+            </div>
+
+            <!-- RIGHT: ABOUT SECTIONS -->
+            <div class="footer-section">
+                <h3>OUR STORY</h3>
+                <a href="about.html#history">📜 History</a>
+                <a href="about.html#projects">🏗️ Projects</a>
+                <a href="about.html#reviews">⭐ Reviews</a>
+                <a href="about.html#resumes">👨‍💻 Developers</a>
+                <a href="about.html#note">📚 Students</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="cart.js"></script>
+
+</body>
+
+</html>
